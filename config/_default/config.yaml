@@ -35,3 +35,10 @@ markup:
   _merge: deep
 security:
   _merge: deep
+cascade:
+  # Configure projects
+  - _target:
+      path: /project/**
+    pager: true
+    reading_time: true
+    share: true

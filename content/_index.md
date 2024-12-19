@@ -43,7 +43,7 @@ sections:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
   - block: collection
-    id: featured
+    id: publications
     content:
       title: Publications
       filters:
@@ -70,10 +70,8 @@ sections:
       buttons:
         - name: All
           tag: '*'
-        - name: Deep Learning
-          tag: Deep Learning
-        - name: Other
-          tag: Demo
+        - name: Cloth Simulation
+          tag: Cloth Simulation
     design:
       # Choose how many columns the section has. Valid values: '1' or '2'.
       columns: '1'
@@ -81,6 +79,7 @@ sections:
       # For Showcase view, flip alternate rows?
       flip_alt_rows: false
   - block: experience
+    id: experience
     content:
       title: Experience
       # Date format for experience
@@ -92,30 +91,43 @@ sections:
       #   Leave `date_end` empty if it's your current employer.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-        - title: CEO
-          company: GenCoin
-          company_url: ''
-          company_logo: org-gc
-          location: California
-          date_start: '2021-01-01'
-          date_end: ''
+        - title: Research Assistant
+          company: Biology Dept., St. Olaf College
+          company_url: 'https://wp.stolaf.edu/'
+          company_logo: org-olaf
+          location: Minnesota
+          date_start: '2020-04-01'
+          date_end: '2021-04-23'
           description: |2-
-              Responsibilities include:
-
-              * Analysing
-              * Modelling
-              * Deploying
-        - title: Professor of Semiconductor Physics
-          company: University X
-          company_url: ''
-          company_logo: org-x
-          location: California
-          date_start: '2016-01-01'
-          date_end: '2020-12-31'
-          description: Taught electronic engineering and researched semiconductor physics.
+            Responsibilities include:
+            * Set up an environment for recording flies’ behavior and use transfer learning to train a network on base videos, then repurpose the learned features to the target videos.
+            * Adapt the algorithms used in DeepLabCut to lower the running time for training machines with low frame rate videos
+        - title: Student Researcher
+          company: Physics Dept., St. Olaf College
+          company_url: 'https://wp.stolaf.edu/'
+          company_logo: org-olaf
+          location: Minnesota
+          date_start: '2020-02-01'
+          date_end: '2020-08-25'
+          description: |2-
+              * Investigated microscopic friction between two sliding surfaces at high speeds.
+              * Designed modules to automate modeling force-displacement loop of contacts vs changes in the resonance of a quartz crystal caused by frictional forces.
+              * Presented in Midstates Consortium Physical Sciences, Mathematics and Computer Science Research Symposium.
+        - title: Student Researcher
+          company: MSCS Dept., St. Olaf College
+          company_url: 'https://wp.stolaf.edu/'
+          company_logo: org-olaf
+          location: Minnesota
+          date_start: '2019-09-01'
+          date_end: '2019-12-25'
+          description: |2-
+              * Proved conditions under which metacyclic p-groups are isoclinic.
+              * Conjectured that the automorphism groups of Schulte metacyclic p-groups are isoclinic, produced data implying that the conjecture might be true.
+              * Presented in Northfield Undergraduate Mathematics Symposium.
     design:
       columns: '2'
   - block: markdown
+    id: gallery
     content:
       title: Gallery
       subtitle: ''
@@ -129,49 +141,25 @@ sections:
       title: Contact
       subtitle:
       text: |-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi diam, venenatis ut magna et, vehicula efficitur enim.
+        Feel free to contact me through email or in person!
       # Contact (add or remove contact options as necessary)
-      email: test@example.org
-      phone: 888 888 88 88
-      appointment_url: 'https://calendly.com'
+      email: 'sueraywang@tamu.edu'
       address:
-        street: 450 Serra Mall
-        city: Stanford
-        region: CA
-        postcode: '94305'
+        street: 435 Nagle St
+        city: College Station
+        region: TX
+        postcode: '77843'
         country: United States
         country_code: US
-      directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
+      directions: Enter L.F. Peterson Building and take the stairs/elevator to Office 402 on Floor 4
       office_hours:
-        - 'Monday 10:00 to 13:00'
-        - 'Wednesday 09:00 to 10:00'
+        - 'MTF 10:00 to 17:00'
       # Choose a map provider in `params.yaml` to show a map from these coordinates
       coordinates:
         latitude: '37.4275'
         longitude: '-122.1697'  
-      contact_links:
-        - icon: twitter
-          icon_pack: fab
-          name: DM Me
-          link: 'https://twitter.com/Twitter'
-        - icon: skype
-          icon_pack: fab
-          name: Skype Me
-          link: 'skype:echo123?call'
-        - icon: video
-          icon_pack: fas
-          name: Zoom Me
-          link: 'https://zoom.com'
       # Automatically link email and phone or display as text?
       autolink: true
-      # Email form provider
-      form:
-        provider: netlify
-        formspree:
-          id:
-        netlify:
-          # Enable CAPTCHA challenge to reduce spam?
-          captcha: false
     design:
       columns: '2'
 ---

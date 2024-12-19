@@ -43,12 +43,6 @@ News:
       institution: St. Olaf College, 2017 - 2021
 
 social:
-  - icon: envelope
-    icon_pack: fas
-    link: 'mailto:sueraywang@tamu.edu'
-  - icon: x-twitter
-    icon_pack: fab
-    link: https://twitter.com/GeorgeCushen
   - icon: github
     icon_pack: fab
     link: https://github.com/sueraywang
@@ -63,7 +57,7 @@ social:
     link: https://orcid.org/0009-0006-9203-8306
   - icon: cv
     icon_pack: ai
-    link: uploads/resume.pdf
+    link: uploads/CV.pdf
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
