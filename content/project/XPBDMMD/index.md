@@ -17,9 +17,12 @@ links:
     url_code: ''
 
 ---
-{{< video src="videos/GimmeGimme.mp4" controls="yes" >}}
+{{< youtube MuLe-ULOIR8 >}}
+
 This project implements a real-time cloth simulator using extended position-based dynamics (**XPBD**), which reads in cloth mesh data (e.g., .obj files) and anminated character body-proxies data and generates the simulated cloth. 
-{{< video src="videos/finalDemo.mp4" controls="yes" >}}
+
+{{< youtube fuNsNcrQUa8 >}}
+
 
 Although the simulator works with any cloth mesh and anminated character body-proxies in theory, the result highly depends on the match between proxies and the real body model mesh. Therefore, **_only the skirt_** in the demo is simulated with the XPBD simulator, while the other cloth (the top cloth) is simulated using **Marvelous Designer** for the integrity of visual effects. Below is a list of the key things I accomplished:
 - [x] An XPBD cloth simulator that solves naive distance constraints.
