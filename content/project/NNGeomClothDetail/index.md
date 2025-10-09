@@ -19,6 +19,7 @@ links:
 
 authors:
   - admin
+  
 ---
 Project Proposal
 
