@@ -7,7 +7,7 @@ defaultContentLanguageInSubdir: false
 removePathAccents: true
 summaryLength: 30
 pagination:
-  pagerSize: 10
+  pagerSize: 20
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>

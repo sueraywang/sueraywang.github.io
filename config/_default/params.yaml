@@ -10,9 +10,6 @@ appearance:
   font: my_font_set    
   font_size: L
 
-# Custom CSS
-custom_css: ["custom.css"]
-
 # SEO
 marketing:
   seo:
