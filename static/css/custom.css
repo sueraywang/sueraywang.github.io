@@ -1,0 +1,122 @@
+/*************************************************
+ *  Custom Styles for Wider Content Layout
+ *  Increases content width and reduces side margins
+ *************************************************/
+
+/* Increase max-width for main containers */
+.container {
+  max-width: 1400px !important;
+  width: 95% !important;
+}
+
+/* Wider content for article/page containers */
+.article-container {
+  max-width: 1200px !important;
+  width: 95% !important;
+}
+
+/* Increase width for page body */
+.page-body {
+  max-width: 1200px !important;
+}
+
+/* Wider content for project pages */
+.project-detail,
+.docs-article-container {
+  max-width: 1300px !important;
+}
+
+/* Adjust universal wrapper */
+.universal-wrapper {
+  max-width: 1400px !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Wider content for home sections */
+.home-section {
+  padding: 50px 20px;
+}
+
+/* Target Bootstrap containers specifically */
+.container,
+.container-fluid {
+  max-width: 1400px !important;
+}
+
+/* Ensure full width usage on large screens */
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1400px !important;
+  }
+}
+
+/* Maintain readability on very large screens */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1600px !important;
+  }
+  
+  .article-container {
+    max-width: 1400px !important;
+  }
+}
+
+/* Responsive: maintain margins on smaller screens */
+@media (max-width: 768px) {
+  .container {
+    width: 95% !important;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Better styling for details/summary (collapsible sections) */
+details {
+  width: 100%;
+  margin: 1.5em 0;
+  padding: 0;
+}
+
+details summary {
+  cursor: pointer;
+  padding: 0.8em 0;
+  border-bottom: 2px solid #e0e0e0;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+details summary:hover {
+  color: #0066cc;
+  border-bottom-color: #0066cc;
+}
+
+details summary h1 {
+  display: inline;
+  margin: 0;
+}
+
+details[open] summary {
+  margin-bottom: 1.5em;
+  border-bottom-color: #0066cc;
+}
+
+/* Ensure code blocks use available width */
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Wider tables */
+.table-responsive {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+}
