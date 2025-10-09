@@ -1,0 +1,142 @@
+/*************************************************
+ *  Custom CSS Override for Wider Content Layout
+ *  Overrides wowchemy.css default widths
+ *  Target: .article-container (760px -> 1300px)
+ *************************************************/
+
+/* Override article container width - CENTER ALIGNED */
+.article-container {
+    max-width: 1300px !important;
+    padding: 0 20px !important;
+    margin: 0 auto !important;
+}
+
+/* Override main container widths */
+.container {
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Page body */
+.page-body {
+    max-width: 1300px !important;
+    margin: 0 auto !important;
+}
+
+/* Project and publication detail pages */
+.project-detail,
+.docs-article-container,
+article.article {
+    max-width: 1300px !important;
+    margin: 0 auto !important;
+}
+
+/* Universal wrapper */
+.universal-wrapper {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+/* Main content area */
+main {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+/* Bootstrap containers */
+.container-fluid {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+/* Ensure sections are centered */
+section {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+    }
+    
+    .article-container {
+        max-width: 1300px !important;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1600px !important;
+    }
+    
+    .article-container {
+        max-width: 1400px !important;
+    }
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .article-container,
+    .container {
+        width: 95% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+/* Details/summary styling for collapsible sections */
+details {
+    width: 100%;
+    margin: 1.5em auto;
+    padding: 0;
+}
+
+details summary {
+    cursor: pointer;
+    padding: 0.8em 0;
+    border-bottom: 2px solid #e0e0e0;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+details summary:hover {
+    color: #0066cc;
+    border-bottom-color: #0066cc;
+}
+
+details summary h1 {
+    display: inline;
+    margin: 0;
+}
+
+details[open] summary {
+    margin-bottom: 1.5em;
+    border-bottom-color: #0066cc;
+}
+
+/* Code blocks */
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Tables */
+.table-responsive {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+}
