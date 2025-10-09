@@ -1,0 +1,71 @@
+/*
+ * Custom CSS overrides for wider article containers
+ * This file overrides the default Hugo Blox template styles
+ */
+
+/* Increase the article container width from 760px to 1100px */
+.article-container {
+    max-width: 1100px !important;
+    padding: 0 30px !important; /* Increased padding to prevent edge overflow */
+}
+
+/* Increase the universal wrapper width from 1000px to 1400px */
+@media only screen and (min-width: 1001px) {
+    .universal-wrapper {
+        width: 1400px !important;
+    }
+}
+
+/* Increase Bootstrap container max-widths for larger screens */
+@media(min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1400px !important;
+    }
+}
+
+/* Optional: Adjust container padding for very wide screens */
+@media only screen and (min-width: 1600px) {
+    .article-container {
+        max-width: 1300px !important;
+        padding: 0 40px !important;
+    }
+    
+    .universal-wrapper {
+        width: 1600px !important;
+    }
+}
+
+/* Force all images and videos to respect container bounds */
+.article-style img,
+.article-style video,
+.article-container img,
+.article-container video {
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ensure figures and their children respect container bounds */
+.article-style figure,
+.article-container figure {
+    max-width: 100% !important;
+    margin: 2rem auto !important;
+    overflow: hidden; /* Prevent overflow */
+}
+
+.article-style figure img,
+.article-container figure img {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+}
+
+/* Handle inline images */
+p img {
+    max-width: 100% !important;
+    height: auto !important;
+}
