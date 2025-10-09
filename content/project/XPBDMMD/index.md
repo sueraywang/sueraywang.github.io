@@ -16,6 +16,9 @@ links:
     name: Code
     url_code: ''
 
+authors:
+  - admin
+
 ---
 {{< youtube MuLe-ULOIR8 >}}
 

@@ -63,4 +63,4 @@ social:
 highlight_name: true
 ---
 
-I am a first-year PhD student at [TAMU CSE](https://engineering.tamu.edu/cse/index.html) and [Aggie Graphics Group](https://aggie.graphics/), advised by [Prof. Shinjiro Sueda](https://people.engr.tamu.edu/sueda/index.html). I received my bachelor’s degree in Mathematics and Physics from [St. Olaf College](https://wp.stolaf.edu/). My research interest primarily lies on physically-based simulation, which focuses on exploring high-fidelity models that yield accurate dynamics and implementing high-performance methods that construct realistic simulations.
+I am a second-year PhD student at [TAMU CSE](https://engineering.tamu.edu/cse/index.html) and [Aggie Graphics Group](https://aggie.graphics/), advised by [Prof. Shinjiro Sueda](https://people.engr.tamu.edu/sueda/index.html). I received my bachelor’s degree in Mathematics and Physics from [St. Olaf College](https://wp.stolaf.edu/). My research interest primarily lies on physically-based simulation, which focuses on exploring high-fidelity models that yield accurate dynamics and implementing high-performance methods that construct realistic simulations.
