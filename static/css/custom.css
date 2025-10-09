@@ -1,36 +1,65 @@
 /*************************************************
  *  Custom Styles for Wider Content Layout
  *  Increases content width and reduces side margins
+ *  CENTER ALIGNED for better readability
  *************************************************/
 
-/* Increase max-width for main containers */
+/* Increase max-width for main containers - CENTER ALIGNED */
 .container {
   max-width: 1400px !important;
   width: 95% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* Wider content for article/page containers */
+/* Wider content for article/page containers - CENTER ALIGNED */
 .article-container {
   max-width: 1200px !important;
   width: 95% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* Increase width for page body */
+/* Increase width for page body - CENTER ALIGNED */
 .page-body {
   max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* Wider content for project pages */
+/* Wider content for project pages - CENTER ALIGNED */
 .project-detail,
 .docs-article-container {
   max-width: 1300px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* Adjust universal wrapper */
+/* Adjust universal wrapper - CENTER ALIGNED */
 .universal-wrapper {
   max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+/* Specific targeting for project and publication pages - CENTER ALIGNED */
+article.article,
+.article-style {
+  max-width: 1300px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Main content area - CENTER ALIGNED */
+main,
+.main-content {
+  max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Wider content for home sections */
@@ -38,13 +67,21 @@
   padding: 50px 20px;
 }
 
-/* Target Bootstrap containers specifically */
+/* Target Bootstrap containers specifically - CENTER ALIGNED */
 .container,
 .container-fluid {
   max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* Ensure full width usage on large screens */
+/* Ensure all page sections are centered */
+section {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Ensure full width usage on large screens - CENTER ALIGNED */
 @media (min-width: 1200px) {
   .container,
   .container-lg,
@@ -52,17 +89,23 @@
   .container-sm,
   .container-xl {
     max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
-/* Maintain readability on very large screens */
+/* Maintain readability on very large screens - CENTER ALIGNED */
 @media (min-width: 1600px) {
   .container {
     max-width: 1600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   
   .article-container {
     max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
