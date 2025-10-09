@@ -1,5 +1,6 @@
 # IDEs
 .idea/
+*.Rproj
 
 # Hugo
 resources/
@@ -8,3 +9,12 @@ jsconfig.json
 node_modules/
 go.sum
 .hugo_build.lock
+
+# Hugo installation files
+hugo_extended_*.deb
+hugo_extended_*.tar.gz
+hugo_*.zip
+
+# Theme template files
+theme.toml
+preview.png
