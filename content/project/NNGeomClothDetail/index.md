@@ -22,7 +22,8 @@ authors:
 
 ---
 
-## Project Proposal
+<details>
+<summary><h1>Project Proposal</h1></summary>
 
 ### Description of Problem
 
@@ -117,3 +118,5 @@ Complete an end-to-end pipeline that integrates coarse simulation, learned predi
 **Stretch Goals (if time permits):**
 - Evaluate the feasibility of generalization across different draping scenarios with various fabric types
 - Handle challenging cases like sharp folds or self-contact with fine details
+
+</details>
