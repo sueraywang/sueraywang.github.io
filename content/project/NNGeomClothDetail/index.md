@@ -30,7 +30,7 @@ authors:
 This project develops a multi-scale cloth simulation approach that combines real-time coarse physics simulation with learned yarn-level geometric details. By training neural networks to predict fine-scale displacement fields and reconstructing them using parametric surface patches, we achieve physically plausible cloth with yarn-level detail at interactive frame rates.
 
 ---
-
+<!-- Project Proposal -->
 <details>
 <summary><strong>Project Proposal</strong></summary>
 
@@ -248,8 +248,8 @@ Proposes coarse-to-fine, level-of-detail simulation for frictionally contacting 
 
 </details>
 
-<details>
 <!-- First Update -->
+<details>
 <summary><strong>First Update</strong></summary>
 
 ### Summary of Work to Date
@@ -266,4 +266,24 @@ According to the proposed proposal, my first milestone **Foundation & Literature
 ### Plan for Completion
 
 So far I'll stick with my original plan by moving onto the next phase **Core Development**. Based on the literature review results, I'm concerned that I need to work on yarn-level cloth simulation for better ground truth training data (which is an unexpected extra work). Thus I might not be able to remain on schedule for the rest of the project. But I'll leave the previous plan intact for now and try to catch up.
+</details>
+
+<!-- Second Update -->
+<details>
+<summary><strong>Second Update</strong></summary>
+
+### Summary of Work to Date
+
+By the time of 2025/11/23, I've made the following progresses:
+
+- **Generate a training dataset:** I've implemented a simplified version of yarn-based cloth simulation according to SIGGRAPH 2010 paper Efficient Yarn-based Cloth with Adaptive Contact Linearization. However the visualizations look unatural. 
+![Description of the video](simulation_summary.png)
+I also tried to take advantage of the compiled dataset from physical tests of several different knitted fabrics used in the textile industry (from SIGGRAPH 2022 paper Estimation of Yarn-Level Simulation Models for Production Fabrics) but I have difficulties designing a neural network that predicts the geometries.
+
+### Analysis of Work
+
+According to the proposed proposal, I made almost 0 progress in the second milestone **Core Development**. 
+
+### Plan for Completion
+I'm considering taking the PhysX simulation (with highly fined grid size) as a ground truth for training dataset (which is already done). This will shift the focus of this project goal as I'll no longer be able to evaluate the physical accuracy of yarn-based cloth. Instead, it serves as a toy example that research the power of neural network on saving runtimes but still maintain a certain level of detials through geometric modeling techniques.
 </details>
