@@ -287,3 +287,99 @@ According to the proposed proposal, I made almost 0 progress in the second miles
 ### Plan for Completion
 I'm considering taking the PhysX simulation (with highly fined grid size) as a ground truth for training dataset (which is already done). This will shift the focus of this project goal as I'll no longer be able to evaluate the physical accuracy of yarn-based cloth. Instead, it serves as a toy example that research the power of neural network on saving runtimes but still maintain a certain level of detials through geometric modeling techniques.
 </details>
+
+<!-- Project Report -->
+<details>
+<summary><strong>Final Report</strong></summary>
+
+### Problem Summary
+
+High-resolution cloth simulation is computationally expensive, limiting real-time applications in games, virtual reality, and interactive design tools. Therefore, a coarse simulation with high-resolution visual quality would be beneficial in many aspects, including:
+
+- **Interactive applications** require real-time feedback
+- **Memory constraints** on GPUs limit maximum mesh resolution
+- **Production pipelines** often need fast previews before expensive final rendering
+
+---
+
+### Previous Work
+
+- **Müller et al.** (2007) - *Position Based Dynamics* introduced constraint-solving for stable real-time physics
+- **Macklin et al.** (2016) - *XPBD: Position-Based Simulation of Compliant Constrained Dynamics* extended PBD with proper physics convergence
+- **Pfaff et al.** (2021) - *Learning Mesh-Based Simulation with Graph Networks* used GNN for forward simulation, not upsampling
+- **Santesteban et al.** (2022) - *SNUG: Self-Supervised Neural Dynamic Garments* used implicit representations
+- **Yu et al.** (2024) - *Super-Resolution Cloth Animation with Spatial and Temporal Coherence* preserved spatial consistency and temporal coherence across frames
+- **Kavan et al.** (2011) - "Physics-Inspired Upsampling for Cloth Simulation in Games" used physics constraints for upsampling
+
+#### Libraries and Tools Used
+
+- **PyTorch 2.0** - Deep learning framework
+- **PyTorch Geometric** - Graph neural network operations
+- **PhysX** - GPU-accelerated physics simulation
+- **NumPy, Matplotlib** - Data processing and visualization
+- **PyOpenGL** - Interactive 3D visualization
+
+---
+
+### Description of Work
+
+My initial goal is to train a neural network that predicts yarn-level displacement fields as functions of coarse mechanical features (strain tensors, curvature, stretch) and reconstruct high-resolution cloth through parametric surface interpolation. To start simple, I initiated the problem with a grid-mesh, hanging cloth. Given the regular grid sturcutre, CNN is my natural choice of network architecture. I was able to replicate the training data in static frames, but due to the lack of temporal consisitency, the network prediction fails during simulation. 
+
+Unfortunately, temporal encoding works poorly with CNN. The trained network's performance won't even beat with a simply upsampled mesh. Therefore, I decided to re-structure the problem as following: given the same coarse cloth simulation, can I achieve high-resolution visual quality at mid-level resolution mesh by using neural networks?
+
+#### Network Architecture
+
+This time, I implemented a two-stage architecture using GNN, where built constraint graphs have 4 edge types (structural, shear, bending, pinned) matching physics simulator connectivity. The network uses **temporal feature encoding** that concatenates current + previous + rest state positions and processes them on coarse graph through graph message passing and **global attention pooling** for holistic deformation understanding. Next, a bilinear subdivision is performed on the coarse mesh for mid-level resolution such that the **repositioning module** could correct subdivision errors with learned offsets.
+
+#### Loss Function
+To accurately capture the physics, we designed the loss function from various perspective. The final loss function is a sum of all components listed below.
+
+- **Multi-scale supervision position loss**: Initially, we take the simple L2 position loss but the network converged to mean pose, losing details. Alternatively, we take the sum of coarse loss (21×21 vs downsampled 41×41 GT) and the fine loss (41×41 interpolated predictions vs GT) as positional loss.
+
+- **Geometrical loss**: Positional loss improves the details but the simulation is unstable. For better performance, we added **Laplacian loss** (which is a superposition of magnitude loss and direction loss) and **normal loss** for consistent geometry. However this increases the overal numerical loss, so I tried **temporal consistency loss** between consecutive frame predictions, which harmed the training because of conflit with spatial losses. Finally, we opted for smooth curriculum learning with exponential weight ramp-up for geometric losses over first 30 epochs.
+
+---
+
+### Results
+
+I've got a functional cloth upsampling system with end-to-end pipeline: coarse simulation → neural upsampling → visualization with 0.028367 mean positional error compared with ground truth, here is the side-by-side comparisons of the simulations: Coarse input (yellow), Bilinearly subdivided mesh of coarse input (cyan), Neural predictions (green), and Ground Truth fine mesh simulation (red).
+
+This is the simulation of hanging cloth under normal gravity:
+![Hanging cloth under normal gravity](result1.gif)
+
+This is the simulation of hanging cloth with wind:
+![Hanging cloth with wind](result2_wind.gif)
+
+This is the simulation of hanging cloth under lower gravity:
+![Hanging cloth under lower gravity](result2_lower_gravity.gif)
+
+This is the simulation of hanging cloth under higher gravity:
+![Hanging cloth under higher gravity](result2_higher_gravity.gif)
+
+Although I expect the network predict simulation should have better runtime compared with the ground truth fine-mesh simulation, unfortunately, the result reveals that the network is quite inefficient.
+
+| Method | Runtime | Resolution | Accuracy |
+|--------|---------|------------|----------|
+| Coarse simulation | 0.498s | 11×11 (121) | - |
+| Fine simulation (GT) | 0.505s | 41×41 (1,681) | - |
+| GNN inference | 0.374s | 11→21 (441) | 2.84 cm mean error |
+| **Total NN pipeline** | **0.872s** | **21×21** | **2.84 cm** |
+
+**Speedup: 0.58× (actually slower!)**
+
+---
+
+### Analysis of Work
+
+The novelty of this project is that it is a flexible, physically and geometrically based simulation, where the coarse mesh simulation provides basic guarantees for physical accuracy, and the fine details are learned geometrically (also physically implicitly) with neural network. Previous works either generates the fine details through motion inputs and wrinkle synthesis for visual quality without physical lowerbounds, or predict the mesh velocity/acceleration based on training data, which highly depends on the mesh integrity and consistency.
+
+Despite that the proposed milestones are generally accomplished, I have to admit that the results implies this might not be a promising research direction because of **poor generalization** and **low runtime efficiency**. Although future works can be done (e.g., consider other physics-conditioned architecture) to improve the generalizibility, the consequent method might not beat the efficiency of GPU supported fine-mesh simulation.
+
+---
+
+### AI/External Code Statement
+
+This project uses AI for neural network training script writing, debugging, and cover image generation. It also uses PhysX SDK to generate ground truth cloth simulation data.
+
+---
+</details>
